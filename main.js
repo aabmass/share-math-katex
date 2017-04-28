@@ -4,6 +4,7 @@
 
 var latexInput = document.getElementById('latex-input');
 var latexOutput = document.getElementById('latex-output');
+var latexErrorsDisplay = document.getElementById('errors');
 
 function base64UrlEncode(text) {
   var nonUrlSafe = btoa(text);
@@ -66,10 +67,19 @@ function updateQueryString(latexInput) {
 }
 
 function renderKatex(latexString) {
-  katex.render(latexString, latexOutput, {
-    displayMode: true,
-    throwOnError: false
-  });
+  // catch any KaTeX parsing errors and display in the DOM
+  try {
+    katex.render(latexString, latexOutput, {
+      displayMode: true,
+      throwOnError: false
+    });
+
+    // rendered successfully, clear any errors
+    latexErrorsDisplay.innerHTML = '';
+  }
+  catch(e) {
+    latexErrorsDisplay.innerHTML = e.message;
+  }
 }
 
 function attachListeners() {

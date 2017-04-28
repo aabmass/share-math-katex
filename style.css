@@ -7,6 +7,12 @@
     font-family: monospace;
 }
 
+#errors {
+    font-family: monospace;
+    /* same color as KaTeX error color */
+    color: #cc0000;
+}
+
 #latex-output {
     font-size: 2em;
 }
