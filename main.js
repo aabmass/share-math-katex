@@ -66,7 +66,10 @@ function updateQueryString(latexInput) {
 }
 
 function renderKatex(latexString) {
-  katex.render(latexString, latexOutput, { displayMode: true });
+  katex.render(latexString, latexOutput, {
+    displayMode: true,
+    throwOnError: false
+  });
 }
 
 function attachListeners() {
