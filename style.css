@@ -1,0 +1,12 @@
+#main {
+  max-width: 600px;
+  margin: 0 auto; 
+}
+
+#latex-input {
+    font-family: monospace;
+}
+
+#latex-output {
+    font-size: 2em;
+}
